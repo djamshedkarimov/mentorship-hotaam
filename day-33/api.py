@@ -20,17 +20,20 @@ parameters = {
     "long": my_long,
     "formatted": 0,
 }
+'''dict for response'''
 
-response = requests.get("https://api.sunrise-sunset.org/json", params=parameters)
-response.raise_for_status()
+response = requests.get("https://api.sunrise-sunset.org", params=parameters)
+# response.raise_for_status()
+'''raise for status for error!!!!'''
+print(response.status_code)
 data = response.json()
 sunrise = data["results"]["sunrise"]
 sunset = data["results"]["sunset"]
+'''sunrise and sunset time as variable'''
 
 print(sunrise)
 
 time_now = datetime.now()
+'''what time it is now'''
 
 print(time_now)
-
-'''supposed to work but idk what happening :('''
